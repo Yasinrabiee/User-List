@@ -20,8 +20,8 @@
 		<thead>
 		  	<tr>
 				<th scope="col" class="table-danger">ID</th>
-				<th scope="col" class="table-danger">FName</th>
-				<th scope="col" class="table-danger">LName</th>
+				<th scope="col" class="table-danger">Username</th>
+				<th scope="col" class="table-danger">Password</th>
 				<th scope="col" class="table-danger">Email</th>
 			</tr>
 		</thead>
@@ -44,8 +44,8 @@
 						$('#records').append(`
 						<tr>
 							<th scope="row">${user.id}</th>	
-							<th>${user.fname}</th>	
-							<th>${user.lname}</th>	
+							<th>${user.username}</th>	
+							<th>${user.password}</th>	
 							<th>${user.email}</th>	
 							<th><buuton class="btn btn-danger delete" name="id" data-id=${user.id}>Delete</buuton></th>	
 						</tr>

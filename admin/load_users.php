@@ -1,7 +1,7 @@
 <?php
     require_once '../config.php'; 
 
-    $sql = "SELECT id, fname, lname, email FROM uuu_user";
+    $sql = "SELECT id, username, pass, email FROM uuu_user";
     $result = $conn->query($sql);
 
     $users = [];
@@ -9,8 +9,8 @@
         while($row = $result->fetch_assoc()) {
             $users[] = [
                 'id' => $row['id'],
-                'fname' => htmlspecialchars($row['fname']),
-                'lname' => htmlspecialchars($row['lname']),
+                'username' => htmlspecialchars($row['username']),
+                'password' => htmlspecialchars($row['pass']),
                 'email' => htmlspecialchars($row['email'])
             ];
         }

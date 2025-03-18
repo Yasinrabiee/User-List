@@ -1,13 +1,31 @@
 <?php 
 	require_once 'config.php';
 
-	$fname = htmlentities($_POST['fname']);
-	$lname = htmlentities($_POST['lname']);
+	$username = htmlentities($_POST['username']);
+	$username = strtolower($username);
+	$password = htmlentities($_POST['password']);
 	$email = htmlentities($_POST['email']);
 
-	$sql = "INSERT INTO uuu_user (fname, lname, email) VALUES
-	('$fname', '$lname', '$email')";
+	$sqlSelect = "SELECT * FROM uuu_user WHERE username = '$username'";
+	$result = $conn->query($sqlSelect);
+	if ($result->num_rows > 0) {
+		$response = [
+			'error' => 'این نام کاربری قبلا انتخاب شده است.' 
+		];
+	}
+	else {
+		$response = [
+			'error' => null 
+		];
 
-	$conn->query($sql);
+		$sqlInsert = "INSERT INTO uuu_user (username, pass, email) VALUES
+		('$username', '$password', '$email')";
+
+		$conn->query($sqlInsert);
+	}
+
 	$conn->close();
+
+	header('Content-Type: application/json');
+	echo json_encode($response);
 ?>
