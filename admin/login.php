@@ -17,17 +17,8 @@
 			$alert = '<div class="alert alert-danger">نام کاربری یا رمز عبور اشتباه است...</div>';
 		}
 	}
+	require_once 'header.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../themes/css/bootstrap.rtl.min.css">
-	<link rel="stylesheet" href="../themes/css/style.css">
-	<title>Login | ورود به سیستم</title>
-</head>
 <body>
 	<form action="" autocomplete="off" method="post" class="form-signin w-100 m-auto">
 		<br>	

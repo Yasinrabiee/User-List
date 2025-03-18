@@ -13,7 +13,7 @@
 			<label for="password">گذرواژه</label>
 		</div>
 		<div class="form-floating mb-2">
-			<input maxlength="50" required type="text" class="form-control" dir="ltr" name="email" id="email" placeholder="Password">
+			<input maxlength="50" type="text" class="form-control" dir="ltr" name="email" id="email" placeholder="Password">
 			<label for="email">ایمیل</label>
 		</div>
 		<div id="res"></div>
@@ -32,8 +32,6 @@
 				email: $(`#email`).val()
 			}
 			
-			console.log(formData);
-
 			$.ajax({
 				url: 'add_user.php',
 				type: 'POST',

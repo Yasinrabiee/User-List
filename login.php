@@ -21,7 +21,7 @@
 			$alert = '<div class="alert alert-danger">نام کاربری یا گذرواژه اشتباه است...</div>';
 		}
 
-		$conn->close();
+		// $conn->close();
 	}
 
 	require_once 'header.php';

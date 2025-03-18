@@ -1,22 +1,23 @@
 @font-face {
 	font-family: Vazir;
-	src: url('../fonts/Vazirmatn-Regular.woff2');
+	src: url('../../../themes/fonts/Vazirmatn-Regular.woff2');
 }
 
 @font-face {
 	font-family: Vazir;
-	src: url('../fonts/Vazirmatn-Bold.woff2');
+	src: url('../../../themes/fonts/Vazirmatn-Bold.woff2');
 	font-weight: bold;
 }
 
 @font-face {
   font-family: Mikhak;
-  src: url("../fonts/Mikhak.woff2");
+  src: url('../../../themes/fonts/Mikhak.woff2');
 }
 
 body {
-  font-family: Mikhak;
+	font-family: Mikhak;
   background-color: rgb(239, 242, 246);
+  padding-inline: 1rem;
 }
 
 .form-signin {
@@ -54,4 +55,12 @@ body {
 
 a {
   text-decoration: none;
+}
+
+#menu div {
+  cursor: pointer;
+}
+
+textarea {
+  font-family: inherit;
 }
