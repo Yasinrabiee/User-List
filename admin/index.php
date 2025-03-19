@@ -27,7 +27,7 @@ require_once 'header.php';
 			<span class="alert alert-success text-center mt-3" style="display: inline-block;">مدیر محترم به پنل مدیریت سیستم خوش آمدید.</span>
 		</div>
 
-		<div id="menu" class="d-flex mb-5 mt-5 justify-content-evenly">
+		<div id="menu" class="d-flex mb-5 mt-5 flex-wrap gap-3 justify-content-evenly">
 			<a href="users.php" class="badge bg-info-subtle py-3 px-5 border border-info-subtle text-info-emphasis rounded-pill">لیست کاربران</a href="">
 			<a href="setting.php" class="badge bg-warning-subtle py-3 px-5 border border-warning-subtle text-warning-emphasis rounded-pill">تنظیمات</a href="">
 			<a href="" class="badge bg-dark-subtle py-3 px-5 border border-dark-subtle text-dark-emphasis rounded-pill">تغییر رمز عبور</a href="">

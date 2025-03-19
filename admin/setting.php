@@ -6,33 +6,8 @@
 
 	require_once 'header.php';
 	require_once '../config.php';
-
-	$alert = '';
-	if (isset($_POST['save'])) {
-		$title = $_POST['title'];	
-		$dir = $_POST['dir'];
-		$message = $_POST['message'];
-
-		$sqlUpdSetting = "UPDATE uuu_setting SET title = '$title',
-		user_message = '$message', dir = '$dir' WHERE id = '1'";
-
-		if ($conn->query($sqlUpdSetting)) {
-			$alert = '<div class="alert alert-success text-center">تنظیمات با موفقیت اصلاح شد.</div>';
-		}
-		else {
-			$alert = '<div class="alert alert-danger text-center">مشکلی در ایجاد اصلاحات به وجود آمد.</div>';
-		}
-	}
 ?>
 <body>
-	<script>
-		tinymce.init({
-		  selector: 'div#editable',
-		  inline: true
-		});
-	</script>
-
-
 	<div id="container" class="rounded-4">
 		<div class="d-flex">
 			<div class="badge d-flex align-items-center p-2 pe-3 text-light-emphasis bg-light-subtle border border-light-subtle rounded-pill">
@@ -49,7 +24,7 @@
 		</div>
 		<h1 class="badge text-bg-dark mt-3 px-3 py-2">تنظیمات</h1>
 
-		<form action="" method="post">
+		<form action="" method="post" id="form">
 			<div class="form-floating mb-4">
 				<input maxlength="100" autofocus required type="text"
 				class="form-control" name="title" id="title"
@@ -57,20 +32,67 @@
 				<label for="username">عنوان سایت</label>
 			</div>
 			چینش صفحه:
-			<select class="form-select mb-4" name="dir">
+			<select class="form-select mb-4" id="dir" name="dir">
 				<option <?= $row['dir'] == 'rtl' ? 'selected' : '' ?> value="rtl">راست به چپ</option>
 				<option <?= $row['dir'] == 'ltr' ? 'selected' : '' ?> value="ltr">چپ به راست</option>
 			</select>
 			<div class="form-floating mb-4">
 				پیغام مدیر:<br>
-				<!-- <textarea class="form-control" style="height: 100px;" name="message"></textarea> -->
-				<textarea id="default" class="tinymce" name="message"><?= $row['user_message'] ?></textarea>
+				<textarea id="message" class="tinymce" name="message"><?= $row['user_message'] ?></textarea>
 			</div>
-			<div><?= $alert ?></div>
+			<div id="res"><?= $alert ?></div>
 			<div class="text-center mb-1">
 				<button type="submit" class="btn btn-success" name="save">ثبت تغییرات</button>
 			</div>
 		</form>
 	</div>
+	<script>
+		function loadSetting() {
+			$.ajax({
+				url: 'load_setting.php',
+				type: 'GET',
+				dataType: 'json',
+
+				success: function(result) {
+					console.log(result);
+				},
+				error: function(result) {
+					console.log(result);
+				}
+			});
+		}
+
+		$('#form').on('submit', function(e) {
+			e.preventDefault();
+			const settings = {
+				title: $('#title').val(),
+				dir: $('#dir').val(),
+				message: tinymce.get('message').getContent()
+			};
+
+			$.ajax({
+				url: 'change_setting.php',
+				type: 'POST',
+				data: settings,
+
+				success: function(response) {
+					if (response.result != null) {
+						$(`#res`).html(`<div class="alert alert-success text-center">تنظیمات با موفقیت اصلاح شد.</div>`);
+					}
+					else {
+						$(`#res`).html(`<div class="alert alert-danger text-center">مشکلی در اصلاح تنظیمات به وجود آمد.</div>`);
+					}
+					loadSetting();
+ 				},
+				error: function(response) {
+					$(`#res`).html(`<div class="alert alert-danger text-center">مشکلی در اصلاح تنظیمات به وجود آمد.</div>`);
+				}
+			});
+
+			document.ready(function() {
+				loadSetting();
+			});
+		});
+	</script>
 </body>
 </html>

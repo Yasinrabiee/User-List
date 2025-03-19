@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="../themes/css/bootstrap.rtl.min.css">
 	<link rel="stylesheet" href="themes/css/style.css">
 	<script src="../themes/js/jquery.min.js"></script>
-	<script src="https://cdn.tiny.cloud/1/mrh4yl2hhb5op265cecfgyi1yqp9e91iu29pxbt3opzudm7g/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+	<script src="themes/js/tinymce.min.js"></script>
 	<script>  
 		tinymce.init({
 	    	selector: '.tinymce',
