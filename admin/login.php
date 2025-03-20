@@ -1,19 +1,23 @@
 <?php 
 	session_start();
-	$usernames = ['yasin', 'yashar', 'maedeh'];
-	$passwords = ['root', '123'];
+	require_once '../config.php';
+	
 	$alert = '';
 
 	if (isset($_POST['login'])) {
-		if (in_array($_POST['username'], $usernames) && 
-		in_array($_POST['password'], $passwords))
-		{
-			$_SESSION['login'] = 'admin:123';
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+		$sql = "SELECT * FROM uuu_admin WHERE username = '$username'
+		AND pass = '$password' ";
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) {
+			$_SESSION['login'] = $username . ':' . $password;
 			$alert = '<div class="alert alert-success">در حال وارد شدن به سیستم هستید...</div>';
 			header ('refresh:1; url=./');
-		} 
-		else 
-		{
+		}
+		else {
 			$alert = '<div class="alert alert-danger">نام کاربری یا رمز عبور اشتباه است...</div>';
 		}
 	}

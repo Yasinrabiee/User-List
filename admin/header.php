@@ -17,14 +17,15 @@
 	<link rel="stylesheet" href="../themes/css/bootstrap.rtl.min.css">
 	<link rel="stylesheet" href="themes/css/style.css">
 	<script src="../themes/js/jquery.min.js"></script>
+	<script src="../themes/js/bootstrap.min.js"></script>
+	<script src="../themes/js/popper.min.js"></script>
 	<script src="themes/js/tinymce.min.js"></script>
 	<script>  
 		tinymce.init({
 	    	selector: '.tinymce',
 	    	plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
 	    	toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-			directionality: 'rtl',
-			// content_style: 'body { font-family: Mikhak; }'
+			directionality: 'rtl'
 	    });
 	</script>
 </head>
