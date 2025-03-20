@@ -5,11 +5,11 @@
 	<form action="" method="post" autocomplete="off" class="w-100 m-auto" style="max-width: 330px;" id="form">	
 		<br>
 		<div class="form-floating mb-2">
-			<input maxlength="50" autofocus required type="text" class="form-control" name="username" id="username" placeholder="name@example.com">
+			<input dir="ltr" maxlength="50" autofocus required type="text" class="form-control" name="username" id="username" placeholder="name@example.com">
 			<label for="username">نام کاربری</label>
 		</div>
 		<div class="form-floating mb-2">
-			<input maxlength="50" required type="password" class="form-control" name="password" id="password" placeholder="Password">
+			<input dir="ltr" maxlength="50" required type="password" class="form-control" name="password" id="password" placeholder="Password">
 			<label for="password">گذرواژه</label>
 		</div>
 		<div class="form-floating mb-2">

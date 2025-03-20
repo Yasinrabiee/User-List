@@ -27,7 +27,7 @@
 	<form action="" autocomplete="off" method="post" class="form-signin w-100 m-auto">
 		<br>	
 		<div class="form-floating">
-			<input type="text" class="form-control" name="username"
+			<input type="text" class="form-control" dir="ltr" name="username"
 			id="floatingInput" placeholder="name@example.com" autofocus>
 			<label for="floatingInput">نام کاربری</label>
 		</div>

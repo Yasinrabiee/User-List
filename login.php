@@ -30,7 +30,7 @@
 	<form action="" autocomplete="off" method="post" class="form-signin w-100 m-auto">
 		<br>	
 		<div class="form-floating">
-			<input type="text" class="form-control" name="username"
+			<input type="text" class="form-control" dir="ltr" name="username"
 			id="username" placeholder="example.com" autofocus>
 			<label for="username">نام کاربری</label>
 		</div>

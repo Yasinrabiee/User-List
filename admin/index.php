@@ -10,7 +10,7 @@
 	$password = $userPass[1];
 
 	require_once 'header.php';
-	print_r($_SESSION);
+	// print_r($_SESSION);
 ?>
 <body>
 	<div id="container" class="rounded-4">
@@ -34,7 +34,7 @@
 		</div>
 
 		<div id="menu" class="d-flex mb-5 mt-5 flex-wrap gap-5 justify-content-evenly">
-			<a href="users.php" class="badge bg-info-subtle py-3 px-5 border border-info-subtle text-info-emphasis rounded-pill">لیست کاربران</a>
+			<a href="users.php" class="badge bg-info-subtle py-3 px-5 border border-info-subtle text-info-emphasis rounded-pill">لیست دانشجویان</a>
 			<a href="setting.php" class="badge bg-warning-subtle py-3 px-5 border border-warning-subtle text-warning-emphasis rounded-pill">تنظیمات</a>
 			<button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="badge bg-dark-subtle py-3 px-5 border border-dark-subtle text-dark-emphasis rounded-pill">تغییر رمز عبور</button>
 			<a href="" class="badge bg-primary-subtle py-3 px-5 border border-primary-subtle text-primary-emphasis rounded-pill">اضافه کردن مدیر</a>
@@ -52,11 +52,11 @@
 						<div class="modal-body">
 								<div class="mb-3">
 									<label for="oldPass" class="col-form-label">رمز عبور فعلی<span class="text-danger">*</span>:</label>
-									<input type="text" name="oldPass" class="form-control" id="oldPass">
+									<input dir="ltr" type="text" name="oldPass" class="form-control" id="oldPass">
 								</div>
 								<div class="mb-3">
 									<label for="newPass" class="col-form-label">رمز عبور جدید<span class="text-danger">*</span>:</label>
-									<input type="password" id="newPass" name="newPass" class="form-control" id="message-text">
+									<input dir="ltr" type="password" id="newPass" name="newPass" class="form-control" id="message-text">
 								</div>
 								<div id="res" class="text-center mt-3">
 									
@@ -84,7 +84,7 @@
 				oldPass: $('#oldPass').val(),
 				newPass: $('#newPass').val()
 			}
-			// console.log(formData);
+			// console.log(formData); dir="ltr"
 			$.ajax({
 				url: 'change_pass.php',
 				type: 'POST',
