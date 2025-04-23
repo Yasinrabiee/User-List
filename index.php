@@ -2,7 +2,8 @@
 	require_once 'config.php';
 
 	session_start();
-	if (!isset($_SESSION['login'])) {
+	if (!isset($_SESSION['login']))
+	{
 		header('location: login.php');
 	}
 	$loginSes = explode(':', $_SESSION['login']); 
